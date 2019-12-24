@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Table, TableHeader, TableRow, TableCell, TableBody, Button, TextInput, RangeInput, Meter, Stack, Text, Grid, Box } from 'grommet';
 
-// MY APP ID : a6adab8f
-// MY APP KEY : b62834aa73724f466e1d7593852a0cea
-//"https://api.edamam.com/recipe?q={recipe}&app_id=${d68b925b}&app_key=${03f2cc15a337e3e95aa95a0c39cdac07}&from=0&to=5"
+// MY APP ID : 
+// MY APP KEY : 
 
-// https://api.edamam.com/search?q=bread&d68b925b&03f2cc15a337e3e95aa95a0c39cdac07
 
 class UserForm extends Component {
     constructor(props) {
@@ -30,7 +28,7 @@ class UserForm extends Component {
     getRecipe = (e) => {
         e.preventDefault();
         const result = this.state.recipe
-        axios.get("https://api.edamam.com/search?q=" + result + "&app_id=a6adab8f&app_key=b62834aa73724f466e1d7593852a0cea&from=0&to=5").then((result) => {
+        axios.get("https://api.edamam.com/search?q=" + result + {key}).then((result) => {
             const recipe_urls = result.data.hits[0].recipe.url;
             for (var i = 0; i < 5; i++) {
                 this.state.urls.push(result.data.hits[i].recipe.url)
